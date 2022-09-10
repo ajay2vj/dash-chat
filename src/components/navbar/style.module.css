@@ -1,3 +1,13 @@
 .image_width{
-  width: 100px;
+  width: 84px;
+}
+.text_react{
+  margin-top: 11px;
+  font-size: 27px;
+  margin-left: -11px;
+  color: #61dafb;
+}
+.nav_shadow{
+  padding: 0px 0px 0px 0px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 20px 25px -5px, rgb(0 0 0 / 4%) 0px 10px 10px -5px;
 }
