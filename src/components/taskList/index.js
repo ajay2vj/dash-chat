@@ -31,12 +31,14 @@ export default function TaskList(){
     <div className={`col-md-6`}>
       <ToastContainer />
       <div className={`mb-3 ${classes.column_chat}`}>
-        <div className='p-3 flex gap-2'>
-          <FiDatabase
-            size={25}
-            color="#61dafb"
-          />
-          <span className='text-lg'>
+        <div className={`p-3 flex gap-2 ${classes.parent_box}`}>
+          <div className={classes.chat_box}>
+            <FiDatabase
+              size={25}
+              color="#61dafb"
+            />
+          </div>
+          <span className={`text-lg`}>
             Task List
           </span>
         </div>

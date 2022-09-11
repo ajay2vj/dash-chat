@@ -45,4 +45,10 @@
   .parentPadding{
     padding: 68px 0px 70px 0px;
   }
+  .chat_box{
+    display: none;
+  }
+  .parent_box{
+    justify-content: center;
+  }
 }

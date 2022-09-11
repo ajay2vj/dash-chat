@@ -1,11 +1,11 @@
 .img_badge{
-  width: 50px;
+  width: 37px;
   border-radius: 50%;
 }
 sup.ant-scroll-number.ant-badge-dot{
   position: absolute !important;
-  top: 42px !important;
-  margin: 3px 8px 6px 0px !important;
+  top: 31px !important;
+  margin: 3px 5px 6px 0px !important;
 }
 .ant-badge-dot{
   width: 8px !important;
@@ -15,7 +15,7 @@ sup.ant-scroll-number.ant-badge-dot{
 @media only screen and (max-width: 736px) {
   sup.ant-scroll-number.ant-badge-dot {
     position: absolute !important;
-    top: 24px !important;
-    margin: 3px 4px 6px 0px !important;
+    top: 19px !important;
+    margin: 3px 1px 6px 0px !important;
   }
 }

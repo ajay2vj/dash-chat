@@ -3,6 +3,8 @@ import classes from '../../App.module.css'
 import { HiOutlinePrinter } from 'react-icons/hi';
 import { Button, Input } from "antd";
 import BadgeModal from "../badge";
+import { FaCalendarAlt } from 'react-icons/fa';
+import moment from "moment";
 export default function ChatBox(){
   const [shows, setShows] = useState([])
   const [message, setMessage] = useState("")
@@ -21,38 +23,54 @@ export default function ChatBox(){
   return(
     <div className={`col-md-6`}>
       <div className={`mb-3 ${classes.column_chat}`}>
-        <div className='p-3 flex gap-2'>
-          <HiOutlinePrinter
-            size={25}
-            color="#f53b76"
-          />
-          <span className='text-lg'>
+        <div className={`p-3 flex gap-2 ${classes.parent_box}`}>
+          <div className={classes.chat_box}>
+            <HiOutlinePrinter
+              size={25}
+              color="#f53b76"
+            />
+          </div>
+          <span className={`text-lg`}>
             Chat Box
           </span>
         </div>
         <hr className='mb-1'/>
         <div className="p-3">
-          <div className="flex mb-3">
+          <div className="flex">
             <BadgeModal />
             <div className="inline-grid">
               <div className={`mb-2 ${classes.message_left}`}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Are we meeting today?
               </div>
-              <div className={`${classes.message_left}`}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              <span className="flex gap-1 mb-2" style={{fontSize: '10px', marginLeft: '27px'}}>
+                <FaCalendarAlt size={10} fill="#c8cccc" className="mt-0.5"/> 11:00 AM
+              </span>
+              <div className={`mb-2 ${classes.message_left}`}>
+                If it is when will you join?
               </div>
+              <span className="flex gap-1 mb-2" style={{fontSize: '10px', marginLeft: '27px'}}>
+                <FaCalendarAlt size={10} fill="#c8cccc" className="mt-0.5"/> 11:00 AM
+              </span>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex justify-end">
             <div className="inline-grid">
               <div className={`mb-2 ${classes.message_right}`}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                I was thinking after lunch, I have a meeting in the morning
               </div>
+              <span className="flex justify-end gap-1 mb-2" style={{fontSize: '10px', marginLeft: '27px'}}>
+                <FaCalendarAlt size={10} fill="#c8cccc" className="mt-0.5"/> 11:00 AM
+              </span>
               {shows?.length > 0 ? 
                 <div>
                   {shows?.map((item, index)=>(
-                    <div className={`mb-2 ${classes.message_right}`} key={index}>
-                      {item}
+                    <div>
+                      <div className={`mb-2 ${classes.message_right}`} key={index}>
+                        {item}
+                      </div>
+                      <span className="flex justify-end gap-1 mb-2" style={{fontSize: '10px', marginLeft: '27px'}}>
+                        <FaCalendarAlt size={10} fill="#c8cccc" className="mt-0.5"/>{moment().format('h:mm A')}
+                      </span>
                     </div>
                   ))}
                 </div>  
@@ -68,10 +86,12 @@ export default function ChatBox(){
             onChange={updateMessage}
             onKeyPress={keyPressed}
           />
-          <Button 
-            type="primary"
-            onClick={handleClick}
-          >Save</Button>
+          <div className={classes.chat_box}>
+            <Button 
+              type="primary"
+              onClick={handleClick}
+            >Save</Button>
+          </div>
         </div>
       </div>
     </div>
