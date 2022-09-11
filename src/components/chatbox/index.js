@@ -58,7 +58,7 @@ export default function ChatBox(){
               <div className={`mb-2 ${classes.message_right}`}>
                 I was thinking after lunch, I have a meeting in the morning
               </div>
-              <span className="flex justify-end gap-1 mb-2" style={{fontSize: '10px', marginLeft: '27px'}}>
+              <span className="flex justify-end gap-1 mb-2" style={{fontSize: '10px', marginRight: '27px'}}>
                 <FaCalendarAlt size={10} fill="#c8cccc" className="mt-0.5"/> 11:00 AM
               </span>
               {shows?.length > 0 ? 
