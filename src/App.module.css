@@ -1,3 +1,30 @@
 .parentPadding{
-  padding: 100px 0px 100px 0px;
+  padding: 68px 0px 100px 0px;
+}
+.icon{
+  margin: 0px 15px 0px 0px;
+  padding: 20px 20px 20px 20px;
+  background: #FFF;
+  box-shadow: rgb(0 0 0 / 10%) 0px 20px 25px -5px, rgb(0 0 0 / 4%) 0px 10px 10px -5px;
+}
+.background_Color{
+  background-color: #f7f7fb;
+  padding: 25px 0px 25px 0px;
+}
+.task_chat{
+  padding: 50px 0px 20px 0px;
+  background-color: #ebebeb;
+}
+.column_chat{
+  height: 350px;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+@media only screen and (max-width: 736px) {
+  .icon{
+    display: none;
+  }
+  .mobile_res{
+    text-align: center;
+  }
 }
