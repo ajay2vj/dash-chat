@@ -12,3 +12,10 @@ sup.ant-scroll-number.ant-badge-dot{
   height: 8px !important;
   background: #64ff4d !important;
 }
+@media only screen and (max-width: 736px) {
+  sup.ant-scroll-number.ant-badge-dot {
+    position: absolute !important;
+    top: 24px !important;
+    margin: 3px 4px 6px 0px !important;
+  }
+}

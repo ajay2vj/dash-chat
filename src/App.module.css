@@ -19,6 +19,22 @@
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
+.message_left{
+  background: #c2f2cf;
+  padding: 14px 15px;
+  margin: 0px 10px;
+  border-bottom-left-radius: 23px;
+  border-top-right-radius: 23px;
+  border-bottom-right-radius: 23px;
+}
+.message_right{
+  background: #c2f2cf;
+  padding: 14px 15px;
+  margin: 0px 10px;
+  border-top-left-radius: 23px;
+  border-bottom-left-radius: 23px;
+  border-bottom-right-radius: 23px;
+}
 @media only screen and (max-width: 736px) {
   .icon{
     display: none;
