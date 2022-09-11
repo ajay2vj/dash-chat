@@ -48,7 +48,7 @@ export default function ChatBox(){
               <div className={`mb-2 ${classes.message_right}`}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               </div>
-              {shows?.length > 1 ? 
+              {shows?.length > 0 ? 
                 <div>
                   {shows?.map((item, index)=>(
                     <div className={`mb-2 ${classes.message_right}`} key={index}>
