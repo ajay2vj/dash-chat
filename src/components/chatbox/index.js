@@ -2,6 +2,7 @@ import React from "react";
 import classes from '../../App.module.css'
 import { HiOutlinePrinter } from 'react-icons/hi';
 import { Button } from "antd";
+import BadgeModal from "../badge";
 export default function ChatBox(){
   return(
     <div className={`col-md-6`}>
@@ -16,18 +17,7 @@ export default function ChatBox(){
           </span>
         </div>
         <hr className='mb-1'/>
-        {/* {taskData?.map((item, index)=>(
-          <div key={index}>
-            <Task 
-              profile={item?.image}
-              tagContent={item?.tag}
-              headContent={item?.headText}
-              subContent={item?.subtext}
-              borderColor={item?.borderLeft}
-            />
-            <hr />
-          </div>
-        ))} */}
+        <BadgeModal />
         <div className="flex justify-end gap-2 p-3">
           <Button>Cancel</Button>
           <Button type="primary">Save</Button>

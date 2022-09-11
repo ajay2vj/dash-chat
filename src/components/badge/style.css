@@ -1,0 +1,14 @@
+.img_badge{
+  width: 50px;
+  border-radius: 50%;
+}
+sup.ant-scroll-number.ant-badge-dot{
+  position: absolute !important;
+  top: 42px !important;
+  margin: 3px 8px 6px 0px !important;
+}
+.ant-badge-dot{
+  width: 8px !important;
+  height: 8px !important;
+  background: #64ff4d !important;
+}
