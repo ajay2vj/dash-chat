@@ -1,5 +1,5 @@
 .parentPadding{
-  padding: 68px 0px 100px 0px;
+  padding: 68px 0px 0px 0px;
 }
 .icon{
   margin: 0px 15px 0px 0px;
@@ -41,5 +41,8 @@
   }
   .mobile_res{
     text-align: center;
+  }
+  .parentPadding{
+    padding: 68px 0px 70px 0px;
   }
 }
