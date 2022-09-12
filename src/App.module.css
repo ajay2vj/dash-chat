@@ -19,6 +19,20 @@
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
+.overflow_chat{
+  height: 300px;
+  overflow-y: auto;
+}
+.overflow_chat::-webkit-scrollbar {
+  width: 7px;
+}
+.overflow_chat::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+.overflow_chat::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #DBDFF0;
+}
 .message_left{
   background: #c2f2cf;
   padding: 14px 15px;

@@ -22,7 +22,7 @@ export default function ChatBox(){
   }
   return(
     <div className={`col-md-6`}>
-      <div className={`mb-3 ${classes.column_chat}`}>
+      <div className={`mb-3 ${classes.column_chat}`} style={{height: '430px'}}>
         <div className={`p-3 flex gap-2 ${classes.parent_box}`}>
           <div className={classes.chat_box}>
             <HiOutlinePrinter
@@ -35,7 +35,7 @@ export default function ChatBox(){
           </span>
         </div>
         <hr className='mb-1'/>
-        <div className="p-3">
+        <div className={`p-3 ${classes.overflow_chat}`}>
           <div className="flex">
             <BadgeModal />
             <div className="inline-grid">

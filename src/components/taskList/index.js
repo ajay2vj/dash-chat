@@ -9,13 +9,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export default function TaskList(){
   const [dragg, setDragg] = useState(false)
-  const getOnchange = (curr, newProp)=>{
+  const [characters, updateCharacters] = useState(taskData)
+  const [update, setUpdate] = useState()
+  const getOnchange = (currPo, newProp)=>{
     // setDragg(newProp ? true: false)
+    if (!currPo) return;
+    const items = Array.from(characters);
+    const [reorderedItem] = items.splice(currPo, 1);
+    items.splice(newProp, 0, reorderedItem);
+    setUpdate(items);
   }
   const onCancel = ()=>{
     setDragg(false)
   }
   const handleOk =()=>{
+    console.log(update)
+    updateCharacters(update)
     toast.success('You have clicked save!', {
       position: "top-right",
       autoClose: 5000,
@@ -45,9 +54,10 @@ export default function TaskList(){
         <hr className='mb-1'/>
         <Draggable onPosChange={(e)=>{
           setDragg(e === 0 || e ? true: false)
-          getOnchange(e)}}
+          getOnchange(e)
+        }}
         >
-          {taskData?.map((item, index)=>(
+          {characters?.map((item, index)=>(
             <div key={index}>
               <Task 
                 profile={item?.image}
