@@ -1,5 +1,5 @@
 div.card {
-  width: 40%;
+  /* width: 40%; */
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -8,4 +8,15 @@ div.card {
 div.accordion {
   text-align: center;
   padding: 10px 20px;
+}
+.product-grid{
+  display: grid;
+  grid-template-columns: 40% auto;
+}
+.order-summary{
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-left: 100px;
 }

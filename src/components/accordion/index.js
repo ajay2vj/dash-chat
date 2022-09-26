@@ -6,15 +6,23 @@ import { BiPlus } from 'react-icons/bi';
 import './accordionstyle.css';
 function Accordion({
   title,
-  data
+  data,
+  setPassData
 }) {
   const [toggleBox, setToggleBox] = useState(false);
+  const [product, setProduct] = useState([])
   const myRef = useRef();
 
   const policyGroupToggleHandler = (e) => {
     e.preventDefault();
     setToggleBox(!toggleBox);
   };
+  const ProductDetails = (item)=>{
+    setProduct(item)
+    const data = [...product]
+    data?.push(item)
+    setPassData(data?.flat())
+  }
 
   return (
       <div
@@ -76,6 +84,7 @@ function Accordion({
                         danger 
                         type='primary' 
                         style={{display: 'flex', gap: '6px'}}
+                        onClick={()=> ProductDetails([item])}
                       >Add 
                         <BiPlus 
                           stroke='#FFF'
