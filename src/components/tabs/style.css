@@ -15,3 +15,15 @@
   font-size: 16px !important;
   font-weight: 500;
 }
+.backicon{
+  position: absolute;
+  top: 0;
+  left: 237px;
+  margin-top: 12px;
+}
+.righticon{
+  margin-top: 12px;
+  position: absolute;
+  top: 0;
+  right: 237px;
+}

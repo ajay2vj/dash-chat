@@ -13,9 +13,9 @@ export default function TabComponent(){
     setTab(key)
   }
   return(
-    <div className='flex justify-center'>
+    <div className=''>
       <IoIosArrowBack 
-        style={{marginTop: '13px'}}
+        className='backicon'
         size={18}
       />
         <Tabs type="card" onChange={onchangeTab}>
@@ -46,7 +46,7 @@ export default function TabComponent(){
         </Tabs>
       <IoIosArrowForward 
         size={18}
-        style={{marginTop: '13px'}}
+        className='righticon'
       />
     </div>
   )
