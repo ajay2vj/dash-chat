@@ -6,23 +6,21 @@
   cursor: pointer;
 }
 .customCss {
-  width: 114px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #001EBA;
+  font-size: 16px;
   font-weight: 500;
-  font-size: 14px;
 }
-.customCss:hover {
-  overflow: visible;
-}
+
 .subCard{
   display: flex;
 }
-.toggle-arrow {
-  color: #001EBA;
-  font-size: 22px;
-  position: absolute;
-  left: 5px;
+.grid-class{
+  display: grid;
+  grid-template-columns: 100px auto auto;
+}
+.image-subcat{
+  width: 110px;
+  border-radius: 10px;
+}
+.bottom-class{
+  padding-top: 51px;
 }

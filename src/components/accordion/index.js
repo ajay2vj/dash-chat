@@ -1,5 +1,9 @@
+import { Button } from 'antd';
 import React, { useState, useRef } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { BiPlus } from 'react-icons/bi';
+import './accordionstyle.css';
 function Accordion({
   title,
   data
@@ -44,7 +48,7 @@ function Accordion({
                       }
                     : { transform: 'rotate(0)', transition: 'all 0.1s linear' }
                 }
-                size={18}
+                size={22}
               />
             </div>
           </div>
@@ -53,13 +57,39 @@ function Accordion({
         <>
           <hr style={{ marginBottom: 7, marginTop: 7 }} />
           <div className='px-2'>
-            Hiiii
-            {/* {data?.map((item, index) => (
-              <div className='flex justify-between' key={index}>
-                <span className='text-xs mb-2'>{item?.name}</span>
-                <span className='text-xs mb-2'>{item?.count}</span>
+            {data?.map((item, index) => (
+              <div key={index}>
+                <div className='grid-class py-3 gap-3' key={index}>
+                  <img src={item?.fnbs_images?.map((item)=> item?.imageurl)} className='image-subcat' alt="sub product images" />
+                  <div>
+                    <p className='text-base font-medium mb-2 text-start'>{item?.itemName}</p>
+                    <p className='text-xs text-start text-stone-400' style={{position: 'relative', top: '-12px'}}>{item?.itemDetails}</p>
+                    <p className='text-base text-start font-medium' style={{paddingTop: '15px'}}>${item?.valuebeforetax}</p>
+                  </div>
+                  <div className='bottom-class'>
+                    <div className='p-2 flex gap-2'>
+                      <AiOutlineShoppingCart 
+                        size={25}
+                        color="#ff4d4f"
+                      /> 
+                      <Button 
+                        danger 
+                        type='primary' 
+                        style={{display: 'flex', gap: '6px'}}
+                      >Add 
+                        <BiPlus 
+                          stroke='#FFF'
+                          size={18}
+                          className="mt-0.5"
+                        />
+                      </Button>
+                    </div>
+                    <p className='font-medium'>To be Picked-up</p>
+                  </div>
+                </div>
+                <hr style={{ marginBottom: 7, marginTop: 7 }} />
               </div>
-            ))} */}
+            ))}
           </div>
         </>
       ) : null}
