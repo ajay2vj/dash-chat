@@ -1,0 +1,17 @@
+.ant-tabs-nav-wrap {
+  justify-content: center !important;
+}
+.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab, .ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab{
+  border: none !important;
+}
+.ant-tabs-bottom>.ant-tabs-nav:before, .ant-tabs-bottom>div>.ant-tabs-nav:before, .ant-tabs-top>.ant-tabs-nav:before, .ant-tabs-top>div>.ant-tabs-nav:before{
+  border-bottom: none !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  font-size: 16px !important;
+  font-weight: 500;
+}
+.ant-tabs-tab-btn, .ant-tabs-tab-remove{
+  font-size: 16px !important;
+  font-weight: 500;
+}
