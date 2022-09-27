@@ -7,7 +7,9 @@ import './accordionstyle.css';
 function Accordion({
   title,
   data,
-  setPassData
+  setPassData,
+  setSubtotal,
+  setTaxtotal
 }) {
   const [toggleBox, setToggleBox] = useState(false);
   const [product, setProduct] = useState([])
@@ -21,7 +23,10 @@ function Accordion({
     setProduct(item)
     const data = [...product]
     data?.push(item)
-    setPassData(data?.flat())
+    const flatten = data?.flat()
+    setSubtotal(flatten?.map(i=>i?.valuebeforetax)?.reduce((a,b)=>a+b))
+    setTaxtotal(flatten?.map(i=>i?.taxValue)?.reduce((a,b)=>a+b))
+    setPassData(flatten)
   }
 
   return (

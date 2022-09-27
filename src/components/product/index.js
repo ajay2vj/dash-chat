@@ -7,7 +7,10 @@ import { AiOutlineShoppingCart, AiOutlinePlusCircle, AiOutlineMinusCircle } from
 export default function Product({content}){
   const [passData, setPassData] = useState([])
   const [count, setCount] = useState(0)
-  
+  const [subTotal, setSubtotal] = useState([])
+  const [taxTotal, setTaxtotal] = useState([])
+  // console.log(passData?.filter((item)=> item?.valuebeforetax))
+  // console.log(passData?.map(i=>i?.valuebeforetax)?.reduce((a,b)=>a+b))
   // const transFormData = passData?.map((item, index)=>({
   //   id: item?.id,
   //   fnbid: item?.fnbid,
@@ -59,6 +62,8 @@ export default function Product({content}){
               title={item?.tabName}
               data={item?.fnbtabs_items}
               setPassData={setPassData}
+              setSubtotal={setSubtotal}
+              setTaxtotal={setTaxtotal}
             />
             </div>
           </div>
@@ -95,6 +100,16 @@ export default function Product({content}){
                 </div>
               </div>
             )}
+            <hr />
+            <div className='flex justify-between'>
+              <p className='font-medium text-base'>Sub Total</p>
+              <p className='font-medium text-base'>${subTotal}</p>
+            </div>
+            <div className='flex justify-between mb-2'>
+              <p className='font-medium text-base'>Tax</p>
+              <p className='font-medium text-base'>${taxTotal}</p>
+            </div>
+            <hr />
           </div>
         ) : (
           <CartEmpty />
