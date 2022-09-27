@@ -28,6 +28,10 @@ function Accordion({
     setTaxtotal(flatten?.map(i=>i?.taxValue)?.reduce((a,b)=>a+b))
     setPassData(flatten)
   }
+  const modifiersModal = (e)=>{
+    e.stopPropagation();
+    console.log('hiii')
+  }
 
   return (
       <div
@@ -72,7 +76,13 @@ function Accordion({
           <div className='px-2'>
             {data?.map((item, index) => (
               <div key={index}>
-                <div className='grid-class py-3 gap-3' key={index}>
+                <div 
+                  className={`grid-class py-3 gap-3 ${item?.modifierGroups?.length > 0 ? 'modifiers' : ''}`}
+                  key={index}
+                  onClick={item?.modifierGroups?.length > 0 ? (e)=> {
+                    modifiersModal(e)
+                  }: ()=> {}}
+                >
                   <img src={item?.fnbs_images?.map((item)=> item?.imageurl)} className='image-subcat' alt="sub product images" />
                   <div>
                     <p className='text-base font-medium mb-2 text-start'>{item?.itemName}</p>
@@ -89,7 +99,10 @@ function Accordion({
                         danger 
                         type='primary' 
                         style={{display: 'flex', gap: '6px'}}
-                        onClick={()=> ProductDetails([item])}
+                        onClick={(e)=> {
+                          e.stopPropagation()
+                          ProductDetails([item])
+                        }}
                       >Add 
                         <BiPlus 
                           stroke='#FFF'

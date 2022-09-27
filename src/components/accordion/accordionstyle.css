@@ -24,3 +24,9 @@
 .bottom-class{
   padding-top: 51px;
 }
+.modifiers:hover{
+  background: #bcbcbc;
+  opacity: 0.5;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
