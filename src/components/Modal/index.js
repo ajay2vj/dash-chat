@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Modal({
@@ -9,15 +9,7 @@ export default function Modal({
   className = 'md:w-4/12',
   onClose = () => {},
 }) {
-  useEffect(() => {
-    const close = (e) => {
-      if (e.keyCode === 27) {
-        setShowModal(false);
-      }
-    };
-    window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
-  }, []);
+
 
   function handleKeyPress() {}
 

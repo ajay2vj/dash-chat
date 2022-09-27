@@ -4,6 +4,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BiPlus } from 'react-icons/bi';
 import './accordionstyle.css';
+import ModifiresModal from '../modifiers';
 function Accordion({
   title,
   data,
@@ -13,6 +14,8 @@ function Accordion({
 }) {
   const [toggleBox, setToggleBox] = useState(false);
   const [product, setProduct] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [modifyData, setModifyData] = useState([])
   const myRef = useRef();
 
   const policyGroupToggleHandler = (e) => {
@@ -28,12 +31,21 @@ function Accordion({
     setTaxtotal(flatten?.map(i=>i?.taxValue)?.reduce((a,b)=>a+b))
     setPassData(flatten)
   }
-  const modifiersModal = (e)=>{
-    e.stopPropagation();
-    console.log('hiii')
+  const modifiersModal = (dtx)=>{
+    setModifyData(dtx)
+    setShowModal(true)
   }
 
   return (
+    <div>
+      <ModifiresModal 
+        setModify={setShowModal}
+        modify={showModal}
+        modifyData={modifyData}
+        setPassData={setPassData}
+        setSubtotal={setSubtotal}
+        setTaxtotal={setTaxtotal}
+      />
       <div
         style={{
           height: `${toggleBox ? '' : '27px'}`
@@ -69,57 +81,59 @@ function Accordion({
               />
             </div>
           </div>
-      </div>
-      {toggleBox ? (
-        <>
-          <hr style={{ marginBottom: 7, marginTop: 7 }} />
-          <div className='px-2'>
-            {data?.map((item, index) => (
-              <div key={index}>
-                <div 
-                  className={`grid-class py-3 gap-3 ${item?.modifierGroups?.length > 0 ? 'modifiers' : ''}`}
-                  key={index}
-                  onClick={item?.modifierGroups?.length > 0 ? (e)=> {
-                    modifiersModal(e)
-                  }: ()=> {}}
-                >
-                  <img src={item?.fnbs_images?.map((item)=> item?.imageurl)} className='image-subcat' alt="sub product images" />
-                  <div>
-                    <p className='text-base font-medium mb-2 text-start'>{item?.itemName}</p>
-                    <p className='text-xs text-start text-stone-400' style={{position: 'relative', top: '-12px'}}>{item?.itemDetails}</p>
-                    <p className='text-base text-start font-medium' style={{paddingTop: '15px'}}>${item?.valuebeforetax}</p>
-                  </div>
-                  <div className='bottom-class'>
-                    <div className='p-2 flex gap-2'>
-                      <AiOutlineShoppingCart 
-                        size={25}
-                        color="#ff4d4f"
-                      /> 
-                      <Button 
-                        danger 
-                        type='primary' 
-                        style={{display: 'flex', gap: '6px'}}
-                        onClick={(e)=> {
-                          e.stopPropagation()
-                          ProductDetails([item])
-                        }}
-                      >Add 
-                        <BiPlus 
-                          stroke='#FFF'
-                          size={18}
-                          className="mt-0.5"
-                        />
-                      </Button>
+        </div>
+        {toggleBox ? (
+          <>
+            <hr style={{ marginBottom: 7, marginTop: 7 }} />
+            <div className='px-2'>
+              {data?.map((item, index) => (
+                <div key={index}>
+                  <div 
+                    className={`grid-class py-3 gap-3 ${item?.modifierGroups?.length > 0 ? 'modifiers' : ''}`}
+                    key={index}
+                    onClick={item?.modifierGroups?.length > 0 ? (e)=> {
+                      e.stopPropagation();
+                      modifiersModal([item])
+                    }: ()=> {}}
+                  >
+                    <img src={item?.fnbs_images?.map((item)=> item?.imageurl)} className='image-subcat' alt="sub product images" />
+                    <div>
+                      <p className='text-base font-medium mb-2 text-start'>{item?.itemName}</p>
+                      <p className='text-xs text-start text-stone-400' style={{position: 'relative', top: '-12px'}}>{item?.itemDetails}</p>
+                      <p className='text-base text-start font-medium' style={{paddingTop: '15px'}}>${item?.valuebeforetax}</p>
                     </div>
-                    <p className='font-medium'>To be Picked-up</p>
+                    <div className='bottom-class'>
+                      <div className='p-2 flex gap-2'>
+                        <AiOutlineShoppingCart 
+                          size={25}
+                          color="#ff4d4f"
+                        /> 
+                        <Button 
+                          danger 
+                          type='primary' 
+                          style={{display: 'flex', gap: '6px'}}
+                          onClick={(e)=> {
+                            e.stopPropagation()
+                            ProductDetails([item])
+                          }}
+                        >Add 
+                          <BiPlus 
+                            stroke='#FFF'
+                            size={18}
+                            className="mt-0.5"
+                          />
+                        </Button>
+                      </div>
+                      <p className='font-medium'>To be Picked-up</p>
+                    </div>
                   </div>
+                  <hr style={{ marginBottom: 7, marginTop: 7 }} />
                 </div>
-                <hr style={{ marginBottom: 7, marginTop: 7 }} />
-              </div>
-            ))}
-          </div>
-        </>
-      ) : null}
+              ))}
+            </div>
+          </>
+        ) : null}
+      </div>
     </div>
   );
 }
