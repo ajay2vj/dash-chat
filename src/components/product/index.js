@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Accordion from '../accordion';
 import CartEmpty from '../cart_empty';
 import './product.css';
-import { AiOutlineShoppingCart, AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import CartDetails from '../cartDetails';
 
 export default function Product({content}){
   const [passData, setPassData] = useState([])
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   const [subTotal, setSubtotal] = useState([])
   const [taxTotal, setTaxtotal] = useState([])
   // console.log(passData?.filter((item)=> item?.valuebeforetax))
@@ -79,37 +80,13 @@ export default function Product({content}){
               color="#ff4d4f"
             /> &nbsp;&nbsp;Picked-up by you
             </p>
-            {passData?.map((item, index)=>
-              <div key={index}>
-                <div className='grid-cart'>
-                  <span className='font-medium select-none'>{item?.itemName}</span>
-                  <div className='flex gap-2'>
-                    <AiOutlineMinusCircle 
-                      size={25}
-                      color="#ff4d4f"
-                      onClick={(e)=> {e.stopPropagation(); setCount(count - 1)}}
-                    />
-                    <span className='select-none'>{count}</span>
-                    <AiOutlinePlusCircle 
-                      size={25}
-                      color="#ff4d4f"
-                      onClick={(e)=> {e.stopPropagation(); setCount(count + 1)}}
-                    />
-                  </div>
-                  <span className='font-medium select-none'>${item?.valuebeforetax}</span>
-                </div>
-              </div>
-            )}
-            <hr />
-            <div className='flex justify-between'>
-              <p className='font-medium text-base'>Sub Total</p>
-              <p className='font-medium text-base'>${subTotal}</p>
-            </div>
-            <div className='flex justify-between mb-2'>
-              <p className='font-medium text-base'>Tax</p>
-              <p className='font-medium text-base'>${taxTotal}</p>
-            </div>
-            <hr />
+            <CartDetails 
+              passData={passData}
+              setCount={setCount}
+              subTotal={subTotal}
+              taxTotal={taxTotal}
+              count={count}
+            />
           </div>
         ) : (
           <CartEmpty />
