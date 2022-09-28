@@ -12,7 +12,7 @@ export default function ModifiresModal({
 }){
   const [product, setProduct] = useState([])
   const AddToCart = (item)=>{
-    setProduct(item)
+    setProduct(dataOld => [...dataOld, item])
     setModify(false);
     const data = [...product]
     data?.push(item)

@@ -23,7 +23,7 @@ function Accordion({
     setToggleBox(!toggleBox);
   };
   const ProductDetails = (item)=>{
-    setProduct(item)
+    setProduct(dataOld => [...dataOld, item])
     const data = [...product]
     data?.push(item)
     const flatten = data?.flat()

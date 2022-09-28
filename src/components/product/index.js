@@ -10,6 +10,11 @@ export default function Product({content}){
   const [count, setCount] = useState(1)
   const [subTotal, setSubtotal] = useState([])
   const [taxTotal, setTaxtotal] = useState([])
+  // const removeItem = (id) => {
+    // console.log(id)
+    // const newPeople = passData.filter((person) => person.id !== id);
+    // setPassData(newPeople?.map(item=> item));
+  // }
   // console.log(passData?.filter((item)=> item?.valuebeforetax))
   // console.log(passData?.map(i=>i?.valuebeforetax)?.reduce((a,b)=>a+b))
   // const transFormData = passData?.map((item, index)=>({
